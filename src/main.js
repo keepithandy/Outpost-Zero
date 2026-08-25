@@ -2,6 +2,10 @@ import { createDevelopmentAdapter } from "./engine/adapter.js";
 import { OUTPOST_ZERO_SCENARIO } from "./scenarios/outpost-zero.js";
 import { createResourceSystem } from "./systems/resources.js";
 import { mountStepControl } from "./ui/mount-step-control.js";
+import {
+  mountTimelineFilters,
+  renderTimeline
+} from "./ui/render-timeline.js";
 import { renderWorld } from "./ui/render-world.js";
 import { createWorldState } from "./world/create-world.js";
 
@@ -20,6 +24,21 @@ if (bootStatus) {
 
 renderWorld(document, session.getState());
 session.subscribe((state) => renderWorld(document, state));
+let timelineFilters = { category: "all", severity: "all" };
+
+function refreshTimeline() {
+  renderTimeline(document, session.getEvents(), timelineFilters);
+}
+
+function refreshFilters(nextFilters) {
+  timelineFilters = nextFilters;
+  mountTimelineFilters(document, timelineFilters, refreshFilters);
+  refreshTimeline();
+}
+
+mountTimelineFilters(document, timelineFilters, refreshFilters);
+session.subscribeToEvents(refreshTimeline);
+refreshTimeline();
 mountStepControl(document, (hours) => {
   session.dispatch({ type: "time/advance", hours });
 });
