@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#09111f">
+    <title>Outpost Zero</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to outpost status</a>
+
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Remote Settlement 00</p>
+        <h1>Outpost Zero</h1>
+      </div>
+      <p id="boot-status" class="status-chip" role="status">Starting systems…</p>
+    </header>
+
+    <main id="main-content" class="dashboard">
+      <section class="panel overview-panel" aria-labelledby="overview-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Current condition</p>
+            <h2 id="overview-title">Outpost overview</h2>
+          </div>
+        </div>
+        <div id="outpost-summary" class="summary-grid" aria-live="polite">
+          <p class="empty-state">World data has not been connected yet.</p>
+        </div>
+      </section>
+
+      <section class="panel resource-panel" aria-labelledby="resources-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Life support</p>
+            <h2 id="resources-title">Resources</h2>
+          </div>
+          <div id="time-controls" class="time-controls" aria-label="Simulation time controls"></div>
+        </div>
+        <div id="resource-list" class="resource-grid">
+          <p class="empty-state">No resource readings available.</p>
+        </div>
+      </section>
+
+      <aside class="panel timeline-panel" aria-labelledby="timeline-title">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Cause and effect</p>
+            <h2 id="timeline-title">Event timeline</h2>
+          </div>
+          <div id="timeline-filters"></div>
+        </div>
+        <ol id="event-timeline" class="timeline" aria-live="polite">
+          <li class="empty-state">No events recorded.</li>
+        </ol>
+      </aside>
+    </main>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
