@@ -1,0 +1,14 @@
+{
+  "name": "outpost-zero",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "description": "A browser-based survival simulation powered by Pulse Engine.",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/serve.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
