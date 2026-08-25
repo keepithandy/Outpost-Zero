@@ -229,6 +229,67 @@ h2 {
   list-style: none;
 }
 
+.timeline-filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filter-field {
+  display: grid;
+  gap: 0.25rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.filter-field select {
+  min-height: 2.25rem;
+  padding-inline: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.timeline-event {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 10px;
+  background: rgb(7 16 29 / 58%);
+}
+
+.timeline-event.is-warning {
+  border-left-color: var(--warning);
+}
+
+.timeline-event.is-critical {
+  border-left-color: var(--critical);
+}
+
+.timeline-event details {
+  padding: 0.8rem;
+}
+
+.timeline-event summary {
+  cursor: pointer;
+}
+
+.timeline-event summary strong,
+.timeline-event summary small {
+  display: block;
+}
+
+.timeline-event summary small {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+.timeline-event p {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 @media (max-width: 760px) {
   .topbar {
     align-items: flex-start;
@@ -249,6 +310,14 @@ h2 {
   .panel-heading {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .timeline-filters {
+    width: 100%;
+  }
+
+  .filter-field {
+    flex: 1;
   }
 }
 
