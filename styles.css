@@ -33,6 +33,10 @@ select {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 button:focus-visible,
 select:focus-visible,
 a:focus-visible,
@@ -202,6 +206,19 @@ h2 {
 
 .resource-card.is-critical .resource-meter {
   accent-color: var(--critical);
+}
+
+.primary-button {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 65%, var(--border));
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 16%, var(--surface));
+  color: var(--text);
+  font-weight: 750;
+}
+
+.primary-button:hover {
+  background: color-mix(in srgb, var(--accent) 25%, var(--surface));
 }
 
 .timeline {
